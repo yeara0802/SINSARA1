@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1" />
+  <meta name="theme-color" content="#090909" />
+  <title>신사라정신 — 1/1 ORIGINAL</title>
+  <meta name="description" content="ALBERT KIWI × SINSARA JEJU HANJI. 세상에 단 한 점, 5.6M의 신사라 위에 남긴 하나의 정신." />
+  <style>
+    :root{
+      --bg:#090909;
+      --paper:#f1ede3;
+      --white:#f7f3eb;
+      --muted:#a79f93;
+      --gold:#c9ae79;
+      --line:rgba(255,255,255,.12);
+      --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",Arial,sans-serif;
+      letter-spacing:-.03em;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:calc(78px + var(--safe-bottom));
+    }
+    button,a{-webkit-tap-highlight-color:transparent}
+    .wrap{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
+
+    .topbar{
+      position:fixed;top:0;left:0;right:0;z-index:40;
+      background:linear-gradient(to bottom,rgba(9,9,9,.92),rgba(9,9,9,.55),transparent);
+      backdrop-filter:blur(8px);
+    }
+    .topin{
+      max-width:640px;margin:0 auto;height:58px;padding:0 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{
+      font-family:Georgia,"Times New Roman",serif;
+      letter-spacing:.18em;font-size:15px
+    }
+    .edition{font-size:9px;letter-spacing:.22em;color:#d4cbbb}
+
+    .hero{
+      min-height:100svh;
+      display:flex;flex-direction:column;justify-content:flex-end;
+      position:relative;overflow:hidden;
+      padding-top:74px;
+      background:
+        radial-gradient(90% 48% at 50% 24%,rgba(201,174,121,.14),transparent 70%),
+        #090909;
+    }
+    .art-frame{
+      width:calc(100% - 28px);
+      max-width:612px;
+      height:52svh;
+      min-height:350px;
+      max-height:560px;
+      margin:4px auto 0;
+      border:1px solid rgba(255,255,255,.15);
+      position:relative;overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.05),rgba(255,255,255,.15),rgba(0,0,0,.04)),
+        repeating-linear-gradient(0deg,rgba(70,55,35,.035) 0 1px,transparent 1px 5px),
+        var(--paper);
+      box-shadow:0 20px 70px rgba(0,0,0,.4);
+    }
+    .art-frame:after{
+      content:"작품 이미지";
+      position:absolute;left:0;right:0;bottom:18px;text-align:center;
+      color:rgba(20,20,20,.42);
+      font-family:Georgia,"Times New Roman",serif;font-size:10px;letter-spacing:.2em;
+    }
+
+    .hero-copy{padding:26px 20px 34px}
+    .kicker{font-size:10px;letter-spacing:.18em;color:var(--gold);margin-bottom:12px}
+    h1{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+      font-size:clamp(48px,15vw,82px);
+      line-height:.92;
+    }
+    .hero-desc{
+      margin-top:16px;
+      font-size:18px;line-height:1.5;
+      color:#eee8de;
+    }
+    .meta{
+      margin-top:20px;
+      display:flex;gap:12px;flex-wrap:wrap;
+      font-size:9px;letter-spacing:.14em;color:#aaa296
+    }
+
+    .line{height:1px;background:var(--line)}
+
+    .section{padding:64px 0}
+    .eyebrow{font-size:9px;letter-spacing:.22em;color:var(--gold);margin-bottom:16px}
+    h2{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+      font-size:38px;
+      line-height:1.08;
+    }
+    .copy{
+      margin:22px 0 0;
+      color:#cec7bc;
+      font-size:15px;line-height:1.75;
+    }
+
+    .specs{margin-top:30px;border-top:1px solid var(--line)}
+    .spec{
+      display:grid;
+      grid-template-columns:92px 1fr;
+      gap:10px;
+      padding:14px 0;
+      border-bottom:1px solid var(--line);
+      font-size:12px;
+    }
+    .spec b{
+      font-weight:500;color:#766f66;
+      font-size:9px;letter-spacing:.12em
+    }
+
+    .details{
+      display:flex;gap:8px;margin-top:18px;overflow-x:auto;
+      scrollbar-width:none;padding-bottom:2px;
+    }
+    .details::-webkit-scrollbar{display:none}
+    .detail{
+      flex:0 0 72%;
+      aspect-ratio:4/5;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 25% 20%,rgba(201,174,121,.16),transparent 32%),
+        linear-gradient(160deg,#151515,#0c0c0c);
+      position:relative;
+    }
+    .detail:after{
+      content:"DETAIL";
+      position:absolute;left:15px;bottom:14px;
+      font-size:9px;letter-spacing:.18em;color:#6f685f
+    }
+
+    .collect{
+      padding:78px 0 88px;
+      text-align:center;
+      background:linear-gradient(180deg,#090909,#100f0d);
+    }
+    .collect h2{
+      font-size:44px;
+      line-height:.98;
+    }
+    .status{
+      margin-top:26px;
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid rgba(201,174,121,.5);
+      border-radius:999px;
+      padding:9px 13px;
+      font-size:9px;letter-spacing:.2em;color:#dbc9a8;
+    }
+    .dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--gold);box-shadow:0 0 14px var(--gold)
+    }
+    .collect p{
+      max-width:420px;margin:22px auto 0;
+      color:#9d9589;font-size:13px;line-height:1.7;
+    }
+
+    .main-cta{
+      width:100%;
+      margin-top:28px;
+      min-height:58px;
+      border:0;
+      background:var(--white);
+      color:#111;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.03em;
+      cursor:pointer;
+    }
+
+    footer{
+      padding:36px 0 44px;border-top:1px solid var(--line)
+    }
+    footer strong{
+      font-family:Georgia,"Times New Roman",serif;
+      letter-spacing:.12em;font-size:15px
+    }
+    footer p{
+      margin:8px 0 0;color:#756e65;font-size:11px;line-height:1.6
+    }
+
+    .sticky-buy{
+      position:fixed;z-index:60;
+      left:0;right:0;bottom:0;
+      background:rgba(9,9,9,.92);
+      border-top:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(12px);
+      padding:10px 14px calc(10px + var(--safe-bottom));
+    }
+    .sticky-inner{
+      max-width:640px;margin:0 auto;
+      display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;
+    }
+    .sticky-meta span{
+      display:block;font-size:9px;letter-spacing:.15em;color:#8f887d;margin-bottom:3px
+    }
+    .sticky-meta strong{
+      font-size:13px;font-weight:600
+    }
+    .sticky-btn{
+      min-width:156px;height:48px;border:0;background:var(--white);color:#111;
+      font-size:12px;font-weight:700;cursor:pointer;
+    }
+
+    .toast{
+      position:fixed;left:50%;bottom:100px;z-index:90;
+      transform:translate(-50%,15px);
+      background:var(--white);color:#111;
+      padding:11px 14px;font-size:11px;white-space:nowrap;
+      opacity:0;pointer-events:none;transition:.22s
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    @media(min-width:700px){
+      body{padding-bottom:0}
+      .sticky-buy{display:none}
+      .hero-copy{padding-left:0;padding-right:0}
+      .hero-copy,.section .wrap{padding-left:28px;padding-right:28px}
+      .details{overflow:visible}
+      .detail{flex:1}
+      .collect{padding-bottom:110px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topin">
+      <div class="brand">SINSARA</div>
+      <div class="edition">1 / 1 ORIGINAL</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="art-frame" aria-label="신사라정신 작품 이미지 영역"></div>
+      <div class="hero-copy wrap">
+        <div class="kicker">ALBERT KIWI × SINSARA JEJU HANJI</div>
+        <h1>신사라정신</h1>
+        <div class="hero-desc">세상에 단 한 점.<br>5.6M의 신사라 위에 하나의 정신을 남겼습니다.</div>
+        <div class="meta">
+          <span>560 × 111 CM</span>
+          <span>2026.08</span>
+          <span>JEJU SINSARA HANJI</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="eyebrow">THE WORK</div>
+        <h2>종이가 작품이<br>되는 순간.</h2>
+        <p class="copy">
+          제주신사라한지 위에 알베르키위의 작품이 더해졌습니다.
+          섬유의 결, 작가의 흔적, 만들어진 시간까지—
+          다시 똑같이 만들 수 없는 단 한 점입니다.
+        </p>
+
+        <div class="specs">
+          <div class="spec"><b>WORK</b><span>신사라정신</span></div>
+          <div class="spec"><b>ARTIST</b><span>알베르키위 / ALBERT KIWI</span></div>
+          <div class="spec"><b>SIZE</b><span>560 × 111 cm</span></div>
+          <div class="spec"><b>YEAR</b><span>2026.08</span></div>
+          <div class="spec"><b>MATERIAL</b><span>제주신사라한지</span></div>
+          <div class="spec"><b>EDITION</b><span>1/1 ORIGINAL</span></div>
+        </div>
+
+        <div class="details">
+          <div class="detail"></div>
+          <div class="detail"></div>
+          <div class="detail"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collect" id="collect">
+      <div class="wrap">
+        <div class="eyebrow">PRIVATE COLLECTION</div>
+        <h2>ONE WORK.<br>ONE COLLECTOR.</h2>
+        <div class="status"><span class="dot"></span>AVAILABLE</div>
+        <p>
+          구매 신청 접수 시각을 기준으로 최초 신청자에게 우선 구매 협의권이 제공됩니다.
+          구매가 확정되는 순간 신청은 종료됩니다.
+        </p>
+        <button class="main-cta js-buy">1/1 ORIGINAL 구매 신청하기</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>SINSARA ORIGINAL</strong>
+      <p>돈 주고도 못 사는 종이.<br>신사라 제주한지</p>
+    </div>
+  </footer>
+
+  <div class="sticky-buy">
+    <div class="sticky-inner">
+      <div class="sticky-meta">
+        <span>AVAILABLE · 1/1</span>
+        <strong>신사라정신</strong>
+      </div>
+      <button class="sticky-btn js-buy">구매 신청</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">구매 신청 링크를 준비 중입니다.</div>
+
+  <script>
+    /*
+      ==============================================
+      신사라정신 최초 유입 추적 + 구매신청 폼 연결
+      ==============================================
+
+      홍보용 홈페이지 링크 예시
+      - 제주신화월드 : ?source=shinhwa
+      - 신사라 제주한지 : ?source=sinsara
+      - 알베르키위 : ?source=albert
+
+      예)
+      https://내아이디.github.io/저장소/?source=shinhwa
+
+      아래 FORM_LINKS 4곳에 구글폼 주소만 넣으면 완료.
+      각 주소는 구글폼의 '미리 채워진 링크'를 권장합니다.
+    */
+
+    // 1) 채널별 구글폼 "미리 채워진 링크"를 여기에 붙여넣기
+    const FORM_LINKS = {
+      shinhwa: "https://docs.google.com/forms/d/e/1FAIpQLScchgLVwNAGtUrTQgPJb1zzB6f-2ysdOVkBxk-LoIqPB7adog/viewform?usp=pp_url&entry.909528719=%EC%A0%9C%EC%A3%BC%EC%8B%A0%ED%99%94%EC%9B%94%EB%93%9C",
+      sinsara: "https://docs.google.com/forms/d/e/1FAIpQLScchgLVwNAGtUrTQgPJb1zzB6f-2ysdOVkBxk-LoIqPB7adog/viewform?usp=pp_url&entry.909528719=%EC%8B%A0%EC%82%AC%EB%9D%BC+%EC%A0%9C%EC%A3%BC%ED%95%9C%EC%A7%80",
+      albert: "https://docs.google.com/forms/d/e/1FAIpQLScchgLVwNAGtUrTQgPJb1zzB6f-2ysdOVkBxk-LoIqPB7adog/viewform?usp=pp_url&entry.909528719=%EC%95%8C%EB%B2%A0%EB%A5%B4%ED%82%A4%EC%9C%84",
+      direct: "https://docs.google.com/forms/d/e/1FAIpQLScchgLVwNAGtUrTQgPJb1zzB6f-2ysdOVkBxk-LoIqPB7adog/viewform?usp=pp_url&entry.909528719=%EC%A7%81%EC%A0%91+%EB%B0%A9%EB%AC%B8"
+    };
+
+    const SOURCE_KEY = "sinsara_first_source";
+    const VALID_SOURCES = ["shinhwa", "sinsara", "albert"];
+
+    // 2) 현재 주소의 ?source= 값 확인
+    const params = new URLSearchParams(window.location.search);
+    const incomingSource = (params.get("source") || "").trim().toLowerCase();
+
+    // 3) 최초 유입만 저장
+    // direct 방문은 저장하지 않음.
+    // 그래서 먼저 그냥 들어왔다가 나중에 신화월드 링크로 들어오면
+    // 그때 shinhwa가 최초 '확인 가능한 홍보 유입'으로 저장됨.
+    if (
+      VALID_SOURCES.includes(incomingSource) &&
+      !localStorage.getItem(SOURCE_KEY)
+    ) {
+      localStorage.setItem(SOURCE_KEY, incomingSource);
+    }
+
+    // 4) 저장된 최초 유입 확인
+    function getFirstSource() {
+      const saved = localStorage.getItem(SOURCE_KEY);
+      return VALID_SOURCES.includes(saved) ? saved : "direct";
+    }
+
+    // 관리자 테스트용:
+    // 주소 뒤에 ?reset_source=1 을 붙여 접속하면 이 브라우저의 최초 유입 기록 삭제
+    if (params.get("reset_source") === "1") {
+      localStorage.removeItem(SOURCE_KEY);
+      history.replaceState({}, "", location.pathname);
+    }
+
+    // 5) 구매 신청 버튼 클릭 시 최초 유입에 맞는 폼 열기
+    document.querySelectorAll(".js-buy").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const firstSource = getFirstSource();
+        const formURL = FORM_LINKS[firstSource] || FORM_LINKS.direct;
+
+        if (!formURL) {
+          const labels = {
+            shinhwa: "제주신화월드",
+            sinsara: "신사라 제주한지",
+            albert: "알베르키위",
+            direct: "직접 방문"
+          };
+
+          const toast = document.getElementById("toast");
+          toast.textContent =
+            "현재 최초 유입: " + labels[firstSource] + " · 구글폼 링크를 연결해 주세요.";
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 2600);
+          return;
+        }
+
+        window.location.href = formURL;
+      });
+    });
+  </script>
+</body>
+</html>
