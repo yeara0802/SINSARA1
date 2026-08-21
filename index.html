@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1" />
+  <meta name="theme-color" content="#090909" />
+  <title>신사라정신 — 1/1 ORIGINAL</title>
+  <meta name="description" content="ALBERT KIWI × SINSARA JEJU HANJI. 세상에 단 한 점, 5.6M의 신사라 위에 남긴 하나의 정신." />
+  <style>
+    :root{
+      --bg:#090909;
+      --paper:#f1ede3;
+      --white:#f7f3eb;
+      --muted:#a79f93;
+      --gold:#c9ae79;
+      --line:rgba(255,255,255,.12);
+      --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",Arial,sans-serif;
+      letter-spacing:-.03em;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:calc(78px + var(--safe-bottom));
+    }
+    button,a{-webkit-tap-highlight-color:transparent}
+    .wrap{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
+
+    .topbar{
+      position:fixed;top:0;left:0;right:0;z-index:40;
+      background:linear-gradient(to bottom,rgba(9,9,9,.92),rgba(9,9,9,.55),transparent);
+      backdrop-filter:blur(8px);
+    }
+    .topin{
+      max-width:640px;margin:0 auto;height:58px;padding:0 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{
+      font-family:Georgia,"Times New Roman",serif;
+      letter-spacing:.18em;font-size:15px
+    }
+    .edition{font-size:9px;letter-spacing:.22em;color:#d4cbbb}
+
+    .hero{
+      min-height:100svh;
+      display:flex;flex-direction:column;justify-content:flex-end;
+      position:relative;overflow:hidden;
+      padding-top:74px;
+      background:
+        radial-gradient(90% 48% at 50% 24%,rgba(201,174,121,.14),transparent 70%),
+        #090909;
+    }
+    .art-frame{
+      width:calc(100% - 28px);
+      max-width:612px;
+      height:52svh;
+      min-height:350px;
+      max-height:560px;
+      margin:4px auto 0;
+      border:1px solid rgba(255,255,255,.15);
+      position:relative;overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.05),rgba(255,255,255,.15),rgba(0,0,0,.04)),
+        repeating-linear-gradient(0deg,rgba(70,55,35,.035) 0 1px,transparent 1px 5px),
+        var(--paper);
+      box-shadow:0 20px 70px rgba(0,0,0,.4);
+    }
+    .art-frame:after{
+      content:"작품 이미지";
+      position:absolute;left:0;right:0;bottom:18px;text-align:center;
+      color:rgba(20,20,20,.42);
+      font-family:Georgia,"Times New Roman",serif;font-size:10px;letter-spacing:.2em;
+    }
+
+    .hero-copy{padding:26px 20px 34px}
+    .kicker{font-size:10px;letter-spacing:.18em;color:var(--gold);margin-bottom:12px}
+    h1{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+      font-size:clamp(48px,15vw,82px);
+      line-height:.92;
+    }
+    .hero-desc{
+      margin-top:16px;
+      font-size:18px;line-height:1.5;
+      color:#eee8de;
+    }
+    .meta{
+      margin-top:20px;
+      display:flex;gap:12px;flex-wrap:wrap;
+      font-size:9px;letter-spacing:.14em;color:#aaa296
+    }
+
+    .line{height:1px;background:var(--line)}
+
+    .section{padding:64px 0}
+    .eyebrow{font-size:9px;letter-spacing:.22em;color:var(--gold);margin-bottom:16px}
+    h2{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;
+      font-size:38px;
+      line-height:1.08;
+    }
+    .copy{
+      margin:22px 0 0;
+      color:#cec7bc;
+      font-size:15px;line-height:1.75;
+    }
+
+    .specs{margin-top:30px;border-top:1px solid var(--line)}
+    .spec{
+      display:grid;
+      grid-template-columns:92px 1fr;
+      gap:10px;
+      padding:14px 0;
+      border-bottom:1px solid var(--line);
+      font-size:12px;
+    }
+    .spec b{
+      font-weight:500;color:#766f66;
+      font-size:9px;letter-spacing:.12em
+    }
+
+    .details{
+      display:flex;gap:8px;margin-top:18px;overflow-x:auto;
+      scrollbar-width:none;padding-bottom:2px;
+    }
+    .details::-webkit-scrollbar{display:none}
+    .detail{
+      flex:0 0 72%;
+      aspect-ratio:4/5;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 25% 20%,rgba(201,174,121,.16),transparent 32%),
+        linear-gradient(160deg,#151515,#0c0c0c);
+      position:relative;
+    }
+    .detail:after{
+      content:"DETAIL";
+      position:absolute;left:15px;bottom:14px;
+      font-size:9px;letter-spacing:.18em;color:#6f685f
+    }
+
+    .collect{
+      padding:78px 0 88px;
+      text-align:center;
+      background:linear-gradient(180deg,#090909,#100f0d);
+    }
+    .collect h2{
+      font-size:44px;
+      line-height:.98;
+    }
+    .status{
+      margin-top:26px;
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid rgba(201,174,121,.5);
+      border-radius:999px;
+      padding:9px 13px;
+      font-size:9px;letter-spacing:.2em;color:#dbc9a8;
+    }
+    .dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--gold);box-shadow:0 0 14px var(--gold)
+    }
+    .collect p{
+      max-width:420px;margin:22px auto 0;
+      color:#9d9589;font-size:13px;line-height:1.7;
+    }
+    .acquisition-price{
+      max-width:420px;margin:24px auto 0;padding:20px 18px;
+      border-top:1px solid rgba(201,174,121,.45);
+      border-bottom:1px solid rgba(201,174,121,.45);
+    }
+    .acquisition-price span{
+      display:block;color:#8f887d;font-size:8px;letter-spacing:.24em;
+      margin-bottom:8px;
+    }
+    .acquisition-price strong{
+      display:block;color:#f3eadb;font-family:Georgia,"Times New Roman",serif;
+      font-size:24px;font-weight:400;letter-spacing:.04em;
+    }
+    .acquisition-price small{
+      display:block;margin-top:8px;color:#70695f;font-size:9px;line-height:1.55;
+    }
+
+    .main-cta{
+      width:100%;
+      margin-top:28px;
+      min-height:58px;
+      border:0;
+      background:var(--white);
+      color:#111;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.03em;
+      cursor:pointer;
+    }
+
+    footer{
+      padding:36px 0 44px;border-top:1px solid var(--line)
+    }
+    footer strong{
+      font-family:Georgia,"Times New Roman",serif;
+      letter-spacing:.12em;font-size:15px
+    }
+    footer p{
+      margin:8px 0 0;color:#756e65;font-size:11px;line-height:1.6
+    }
+
+    .sticky-buy{
+      position:fixed;z-index:60;
+      left:0;right:0;bottom:0;
+      background:rgba(9,9,9,.92);
+      border-top:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(12px);
+      padding:10px 14px calc(10px + var(--safe-bottom));
+    }
+    .sticky-inner{
+      max-width:640px;margin:0 auto;
+      display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;
+    }
+    .sticky-meta span{
+      display:block;font-size:9px;letter-spacing:.15em;color:#8f887d;margin-bottom:3px
+    }
+    .sticky-meta strong{
+      font-size:13px;font-weight:600
+    }
+    .sticky-btn{
+      min-width:156px;height:48px;border:0;background:var(--white);color:#111;
+      font-size:12px;font-weight:700;cursor:pointer;
+    }
+
+    .toast{
+      position:fixed;left:50%;bottom:100px;z-index:90;
+      transform:translate(-50%,15px);
+      background:var(--white);color:#111;
+      padding:11px 14px;font-size:11px;white-space:nowrap;
+      opacity:0;pointer-events:none;transition:.22s
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    @media(min-width:700px){
+      body{padding-bottom:0}
+      .sticky-buy{display:none}
+      .hero-copy{padding-left:0;padding-right:0}
+      .hero-copy,.section .wrap{padding-left:28px;padding-right:28px}
+      .details{overflow:visible}
+      .detail{flex:1}
+      .collect{padding-bottom:110px}
+    }
+  
+    /* ===== PRIVATE COLLECTION REQUEST / Mobile modal ===== */
+    .request-modal{
+      position:fixed;inset:0;z-index:100;
+      display:none;
+      background:rgba(0,0,0,.72);
+      backdrop-filter:blur(10px);
+    }
+    .request-modal.open{display:block}
+    .request-panel{
+      position:absolute;left:0;right:0;bottom:0;
+      width:100%;max-width:640px;max-height:92svh;
+      margin:0 auto;
+      overflow:auto;
+      background:#0d0d0d;
+      border-top:1px solid rgba(201,174,121,.34);
+      border-radius:22px 22px 0 0;
+      padding:18px 20px calc(28px + var(--safe-bottom));
+      box-shadow:0 -24px 80px rgba(0,0,0,.55);
+    }
+    .request-head{
+      position:sticky;top:-18px;z-index:2;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+      background:linear-gradient(#0d0d0d 78%,rgba(13,13,13,0));
+      padding:10px 0 22px;
+    }
+    .request-kicker{
+      color:var(--gold);font-size:9px;letter-spacing:.2em;margin-bottom:8px
+    }
+    .request-title{
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:400;font-size:29px;line-height:1.05;margin:0
+    }
+    .request-close{
+      flex:0 0 42px;width:42px;height:42px;border-radius:50%;
+      border:1px solid var(--line);background:transparent;color:#fff;
+      font-size:21px;cursor:pointer
+    }
+    .request-note{
+      color:#8f887d;font-size:11px;line-height:1.65;margin:0 0 26px
+    }
+    .request-price{
+      margin:-8px 0 26px;padding:18px 16px;
+      border:1px solid rgba(201,174,121,.38);
+      background:linear-gradient(145deg,rgba(201,174,121,.08),rgba(255,255,255,.015));
+    }
+    .request-price span{
+      display:block;color:#8f887d;font-size:8px;letter-spacing:.22em;margin-bottom:7px
+    }
+    .request-price strong{
+      display:block;color:#f3eadb;font-family:Georgia,"Times New Roman",serif;
+      font-size:23px;font-weight:400;letter-spacing:.04em
+    }
+    .request-price small{
+      display:block;margin-top:8px;color:#716a61;font-size:9px;line-height:1.55
+    }
+    .field-row{display:grid;grid-template-columns:1fr;gap:0}
+    .field{margin:0 0 19px;text-align:left}
+    .field label,.field legend{
+      display:block;margin:0 0 8px;padding:0;
+      color:#e9e3da;font-size:12px;font-weight:600
+    }
+    .field .hint{
+      display:block;margin-top:6px;color:#6f685f;font-size:10px;line-height:1.5
+    }
+    .field input[type="text"],
+    .field input[type="tel"],
+    .field input[type="email"],
+    .field select,
+    .field textarea{
+      width:100%;border:1px solid rgba(255,255,255,.13);
+      background:#131313;color:#f7f3eb;border-radius:0;
+      padding:14px 13px;font:inherit;font-size:14px;outline:none;
+    }
+    .field textarea{min-height:92px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{
+      border-color:rgba(201,174,121,.72)
+    }
+    .check{
+      display:grid;grid-template-columns:22px 1fr;gap:9px;
+      align-items:start;margin:10px 0;color:#bdb5aa;font-size:11px;line-height:1.55
+    }
+    .check input{margin-top:3px;accent-color:#d5bc87}
+    .assurance{
+      margin:18px 0 0;padding:15px 14px;
+      background:#111;border-left:2px solid rgba(201,174,121,.7);
+      color:#777067;font-size:10px;line-height:1.65
+    }
+    .request-submit{
+      width:100%;height:58px;margin-top:10px;border:0;
+      background:var(--white);color:#111;font-size:13px;font-weight:800;
+      letter-spacing:.03em;cursor:pointer
+    }
+    .request-submit[disabled]{opacity:.5;cursor:wait}
+    .request-success{
+      display:none;text-align:center;padding:44px 8px 34px
+    }
+    .request-success.show{display:block}
+    .request-success .ok{
+      color:var(--gold);font-size:10px;letter-spacing:.2em;margin-bottom:14px
+    }
+    .request-success h3{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:34px;font-weight:400;line-height:1.05;margin:0 0 18px
+    }
+    .request-success p{
+      color:#a59d91;font-size:13px;line-height:1.75;margin:0
+    }
+    .request-success .request-submit{margin-top:28px}
+    body.modal-open{overflow:hidden}
+
+    @media(min-width:540px){
+      .field-row.two{grid-template-columns:1fr 1fr;gap:12px}
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topin">
+      <div class="brand">SINSARA</div>
+      <div class="edition">1 / 1 ORIGINAL</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="art-frame" aria-label="신사라정신 작품 이미지 영역"></div>
+      <div class="hero-copy wrap">
+        <div class="kicker">ALBERT KIWI × SINSARA JEJU HANJI</div>
+        <h1>신사라정신</h1>
+        <div class="hero-desc">세상에 단 한 점.<br>5.6M의 신사라 위에 하나의 정신을 남겼습니다.</div>
+        <div class="meta">
+          <span>560 × 111 CM</span>
+          <span>2026.08</span>
+          <span>JEJU SINSARA HANJI</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="eyebrow">THE WORK</div>
+        <h2>종이가 작품이<br>되는 순간.</h2>
+        <p class="copy">
+          제주신사라한지 위에 알베르키위의 작품이 더해졌습니다.
+          섬유의 결, 작가의 흔적, 만들어진 시간까지—
+          다시 똑같이 만들 수 없는 단 한 점입니다.
+        </p>
+
+        <div class="specs">
+          <div class="spec"><b>WORK</b><span>신사라정신</span></div>
+          <div class="spec"><b>ARTIST</b><span>알베르키위 / ALBERT KIWI</span></div>
+          <div class="spec"><b>SIZE</b><span>560 × 111 cm</span></div>
+          <div class="spec"><b>YEAR</b><span>2026.08</span></div>
+          <div class="spec"><b>MATERIAL</b><span>제주신사라한지</span></div>
+          <div class="spec"><b>EDITION</b><span>1/1 ORIGINAL</span></div>
+        </div>
+
+        <div class="details">
+          <div class="detail"></div>
+          <div class="detail"></div>
+          <div class="detail"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collect" id="collect">
+      <div class="wrap">
+        <div class="eyebrow">PRIVATE ACQUISITION INQUIRY</div>
+        <h2>ONE WORK.<br>ONE COLLECTOR.</h2>
+        <div class="status"><span class="dot"></span>AVAILABLE FOR PRIVATE ACQUISITION</div>
+        <div class="acquisition-price">
+          <span>ACQUISITION PRICE</span>
+          <strong>KRW 100,000,000</strong>
+          <small>세부 거래·운송·설치 조건은 비공개 상담을 통해 안내됩니다.</small>
+        </div>
+        <p>
+          〈신사라정신〉의 소장은 비공개 상담을 통해 진행됩니다.
+          작품 자료, 프라이빗 관람, 기업 컬렉션 및 공간 설치에 관한 안내를 개별적으로 제공합니다.
+        </p>
+        <button class="main-cta js-buy">1/1 ORIGINAL 소장 문의 · PRIVATE ACQUISITION</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>SINSARA ORIGINAL</strong>
+      <p>돈 주고도 못 사는 종이.<br>신사라 제주한지</p>
+    </div>
+  </footer>
+
+  <div class="sticky-buy">
+    <div class="sticky-inner">
+      <div class="sticky-meta">
+        <span>PRIVATE ACQUISITION · 1/1</span>
+        <strong>신사라정신</strong>
+      </div>
+      <button class="sticky-btn js-buy">소장 문의</button>
+    </div>
+  </div>
+
+
+  <!-- 비공개 소장 문의 모달: 유입 주체는 고객 화면에 표시되지 않으며 자동 전송됩니다. -->
+  <div class="request-modal" id="requestModal" aria-hidden="true">
+    <div class="request-panel" role="dialog" aria-modal="true" aria-labelledby="requestTitle">
+      <div id="requestFormView">
+        <div class="request-head">
+          <div>
+            <div class="request-kicker">PRIVATE ACQUISITION INQUIRY</div>
+            <h2 class="request-title" id="requestTitle">〈신사라정신〉<br>소장 문의</h2>
+          </div>
+          <button type="button" class="request-close" id="requestClose" aria-label="닫기">×</button>
+        </div>
+
+        <p class="request-note">
+          본 양식은 일반 주문서가 아닌 비공개 소장 상담 요청서입니다.
+          내용을 확인한 후 작품 자료, 프라이빗 관람 및 계약 절차를 개별적으로 안내드립니다.
+        </p>
+
+        <div class="request-price">
+          <span>ACQUISITION PRICE</span>
+          <strong>KRW 100,000,000</strong>
+          <small>Edition 1/1 · 작품의 소장은 매매계약 및 계약금 확인 후 최종 확정됩니다.</small>
+        </div>
+
+        <form id="purchaseRequestForm" method="POST" target="submitFrame">
+          <!-- source는 자바스크립트가 localStorage의 최초 유입값을 넣습니다. -->
+          <input type="hidden" name="source" id="sourceField" value="direct">
+          <input type="hidden" name="pageUrl" id="pageUrlField">
+          <input type="hidden" name="userAgent" id="userAgentField">
+
+          <div class="field-row two">
+            <div class="field">
+              <label for="buyerName">성함 / 담당자명 *</label>
+              <input id="buyerName" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="organization">소속 / 회사명</label>
+              <input id="organization" name="organization" type="text" autocomplete="organization"
+                     placeholder="개인 소장의 경우 생략 가능">
+            </div>
+          </div>
+
+          <div class="field-row two">
+            <div class="field">
+              <label for="buyerPhone">연락처 *</label>
+              <input id="buyerPhone" name="phone" type="tel" autocomplete="tel"
+                     placeholder="010-0000-0000" required>
+            </div>
+
+            <div class="field">
+              <label for="buyerEmail">이메일 *</label>
+              <input id="buyerEmail" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="buyerType">소장 검토 주체 *</label>
+            <select id="buyerType" name="buyerType" required>
+              <option value="" selected disabled>선택해 주세요</option>
+              <option>개인 컬렉터</option>
+              <option>법인·기업 컬렉션</option>
+              <option>호텔·리조트·골프장</option>
+              <option>미술관·갤러리·문화기관</option>
+              <option>건축·인테리어 프로젝트</option>
+              <option>기타</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="inquiryType">관심 내용 *</label>
+            <select id="inquiryType" name="inquiryType" required>
+              <option value="" selected disabled>선택해 주세요</option>
+              <option>작품 상세자료 요청</option>
+              <option>프라이빗 관람 요청</option>
+              <option>개인 소장 상담</option>
+              <option>기업 컬렉션·공간 설치 상담</option>
+              <option>구매 및 계약 조건 협의</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="intendedSpace">소장·설치 예정 공간</label>
+            <input id="intendedSpace" name="intendedSpace" type="text"
+                   placeholder="예: 본사 로비, 호텔 VIP 라운지, 개인 컬렉션">
+            <span class="hint">공간을 알려주시면 작품 크기와 설치 가능성을 함께 검토해드립니다.</span>
+          </div>
+
+          <div class="field">
+            <label for="preferredContact">선호 연락 방법 *</label>
+            <select id="preferredContact" name="preferredContact" required>
+              <option value="" selected disabled>선택해 주세요</option>
+              <option>전화</option>
+              <option>문자</option>
+              <option>이메일</option>
+              <option>카카오톡</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="contactPath">이 작품을 처음 어떤 경로에서 접하셨나요? *</label>
+            <select id="contactPath" name="contactPath" required>
+              <option value="" selected disabled>선택해 주세요</option>
+              <option>제주신화월드 현장 전시</option>
+              <option>제주신화월드 공식 채널</option>
+              <option>신사라 제주한지 채널</option>
+              <option>알베르키위 작가 채널</option>
+              <option>언론·기사</option>
+              <option>기업 제안 메일</option>
+              <option>지인 소개</option>
+              <option>기타</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>작품가 확인 *</label>
+            <label class="check">
+              <input type="checkbox" name="purchaseConfirm" value="KRW 100,000,000 확인" required>
+              <span>〈신사라정신〉 1/1 ORIGINAL의 소장가가 <strong>KRW 100,000,000</strong>임을 확인했습니다.</span>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>소장 절차 안내 확인 *</label>
+            <label class="check">
+              <input type="checkbox" name="noticeConfirm1" value="동의" required>
+              <span>본 문의 제출만으로 작품이 예약되거나 구매가 확정되는 것은 아니며, 개별 협의 후 매매계약 및 계약금 확인을 통해 최종 확정됨을 확인했습니다.</span>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>개인정보 수집 및 이용 동의 *</label>
+            <label class="check">
+              <input type="checkbox" name="privacyConfirm" value="동의" required>
+              <span>작품 구매 상담 및 계약 진행을 위한 성명, 연락처, 이메일 등 개인정보 수집·이용에 동의합니다.</span>
+            </label>
+          </div>
+
+          <div class="field">
+            <label for="message">소장·설치 관련 메모</label>
+            <textarea id="message" name="message"
+                      placeholder="프라이빗 관람 희망 일정, 설치 예정 공간, 기업 내부 검토에 필요한 자료 등을 남겨주세요."></textarea>
+          </div>
+
+          <button class="request-submit" id="requestSubmit" type="submit">
+            비공개 소장 상담 요청
+          </button>
+
+          <div class="assurance">
+            제출하신 정보는 작품 소장 상담과 계약 절차 안내에만 사용됩니다.
+            거래 조건 및 컬렉터 정보는 비공개로 관리됩니다.
+          </div>
+        </form>
+      </div>
+
+      <div class="request-success" id="requestSuccess">
+        <div class="ok">PRIVATE INQUIRY RECEIVED</div>
+        <h3>소장 문의가<br>접수되었습니다.</h3>
+        <p>
+          담당자가 내용을 확인한 후<br>
+          작품 자료와 프라이빗 관람 및<br>
+          소장 절차를 개별 안내드리겠습니다.<br><br>
+          ONE WORK. ONE COLLECTOR.
+        </p>
+        <button class="request-submit" id="requestSuccessClose" type="button">확인</button>
+      </div>
+
+      <iframe name="submitFrame" id="submitFrame" hidden></iframe>
+    </div>
+  </div>
+
+
+  <div class="toast" id="toast">소장 문의 시스템을 준비 중입니다.</div>
+
+  <script>
+    /*
+      ======================================================
+      신사라정신 / 최초 유입 숨김 기록 + 홈페이지 내 비공개 소장 문의
+      ======================================================
+
+      1) Apps Script를 "웹 앱"으로 배포
+      2) 아래 APPS_SCRIPT_WEB_APP_URL에 /exec 주소를 붙여넣기
+      3) GitHub Pages의 index.html로 업로드
+
+      채널 링크
+      - 제주신화월드  : ?source=shinhwa
+      - 신사라 제주한지: ?source=sinsara
+      - 알베르키위    : ?source=albert
+
+      고객 화면에는 유입 주체 항목이 보이지 않습니다.
+    */
+
+    const APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxPzanYMWsTds_z4jq86EA2-556AjLHPSUHz_U0GkXjrLN5kkSkJgnEzGx-fiWFv0InTg/exec";
+
+    const SOURCE_KEY = "sinsara_first_source";
+    const SOURCE_ALIASES = {
+      shinhwa: "shinhwa",
+      shinhwaworld: "shinhwa",
+      sinsara: "sinsara",
+      albert: "albert",
+      albertkiwi: "albert",
+      press: "press",
+      corporate: "corporate"
+    };
+    const params = new URLSearchParams(window.location.search);
+    const incomingSource = (params.get("source") || params.get("utm_source") || "")
+      .trim()
+      .toLowerCase();
+
+    // 테스트 초기화
+    if (params.get("reset_source") === "1") {
+      localStorage.removeItem(SOURCE_KEY);
+      history.replaceState({}, "", location.pathname);
+    }
+
+    // 최초 확인 가능한 홍보 유입만 저장
+    if (SOURCE_ALIASES[incomingSource] && !localStorage.getItem(SOURCE_KEY)) {
+      localStorage.setItem(SOURCE_KEY, SOURCE_ALIASES[incomingSource]);
+    }
+
+    function getFirstSource() {
+      const saved = localStorage.getItem(SOURCE_KEY);
+      return ["shinhwa", "sinsara", "albert", "press", "corporate"].includes(saved)
+        ? saved
+        : "direct";
+    }
+
+    // 비공개 소장 문의 모달
+    const modal = document.getElementById("requestModal");
+    const closeBtn = document.getElementById("requestClose");
+    const form = document.getElementById("purchaseRequestForm");
+    const submitBtn = document.getElementById("requestSubmit");
+    const iframe = document.getElementById("submitFrame");
+    const formView = document.getElementById("requestFormView");
+    const successView = document.getElementById("requestSuccess");
+    const successCloseBtn = document.getElementById("requestSuccessClose");
+
+    function openRequestModal() {
+      document.getElementById("sourceField").value = getFirstSource();
+      document.getElementById("pageUrlField").value = location.href;
+      document.getElementById("userAgentField").value = navigator.userAgent;
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeRequestModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    document.querySelectorAll(".js-buy").forEach((btn) => {
+      btn.addEventListener("click", openRequestModal);
+    });
+
+    closeBtn.addEventListener("click", closeRequestModal);
+    successCloseBtn.addEventListener("click", closeRequestModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeRequestModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) {
+        closeRequestModal();
+      }
+    });
+
+    let waitingForSubmitResult = false;
+
+    iframe.addEventListener("load", () => {
+      if (!waitingForSubmitResult) return;
+
+      waitingForSubmitResult = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = "비공개 소장 상담 요청";
+
+      formView.style.display = "none";
+      successView.classList.add("show");
+      form.reset();
+    });
+
+    form.addEventListener("submit", (e) => {
+      if (
+        !APPS_SCRIPT_WEB_APP_URL ||
+        APPS_SCRIPT_WEB_APP_URL === "PASTE_APPS_SCRIPT_EXEC_URL_HERE"
+      ) {
+        e.preventDefault();
+        const toast = document.getElementById("toast");
+        toast.textContent = "Apps Script 웹 앱 주소를 먼저 연결해 주세요.";
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2600);
+        return;
+      }
+
+      // 제출 직전에 최초 유입값을 다시 강제로 설정
+      document.getElementById("sourceField").value = getFirstSource();
+      document.getElementById("pageUrlField").value = location.href;
+      document.getElementById("userAgentField").value = navigator.userAgent;
+
+      form.action = APPS_SCRIPT_WEB_APP_URL;
+      waitingForSubmitResult = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "접수 중…";
+      // 실제 제출은 기본 form POST가 hidden iframe으로 전송
+    });
+  </script>
+</body>
+</html>
